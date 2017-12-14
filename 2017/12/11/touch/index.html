@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="解決某些手机（移动端）无法触发touchend事件触屏事件的基本过程js的触屏事件，主要有三个事件：touchstart，touchmove，touchend。">
+<meta name="description" content="开发移动端项目，虽然不用兼容头疼的IE浏览器，但是面对市场上各款手机兼容问题，也是一个持久战。这篇主要讲touch事件的兼容问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解決某些手机（移动端）无法触发touchend事件">
 <meta property="og:url" content="https://yangyiii.github.io/2017/12/11/touch/index.html">
 <meta property="og:site_name" content="Nora&#39;s blog">
-<meta property="og:description" content="解決某些手机（移动端）无法触发touchend事件触屏事件的基本过程js的触屏事件，主要有三个事件：touchstart，touchmove，touchend。">
+<meta property="og:description" content="开发移动端项目，虽然不用兼容头疼的IE浏览器，但是面对市场上各款手机兼容问题，也是一个持久战。这篇主要讲touch事件的兼容问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-11T08:50:54.211Z">
+<meta property="og:updated_time" content="2017-12-14T02:00:50.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解決某些手机（移动端）无法触发touchend事件">
-<meta name="twitter:description" content="解決某些手机（移动端）无法触发touchend事件触屏事件的基本过程js的触屏事件，主要有三个事件：touchstart，touchmove，touchend。">
+<meta name="twitter:description" content="开发移动端项目，虽然不用兼容头疼的IE浏览器，但是面对市场上各款手机兼容问题，也是一个持久战。这篇主要讲touch事件的兼容问题。">
 
 
 
@@ -226,16 +226,6 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
-            
-            站点地图
           </a>
         </li>
       
@@ -410,7 +400,9 @@
       
 
       
-        <h2 id="解決某些手机（移动端）无法触发touchend事件"><a href="#解決某些手机（移动端）无法触发touchend事件" class="headerlink" title="解決某些手机（移动端）无法触发touchend事件"></a>解決某些手机（移动端）无法触发touchend事件</h2><h3 id="触屏事件的基本过程"><a href="#触屏事件的基本过程" class="headerlink" title="触屏事件的基本过程"></a>触屏事件的基本过程</h3><p>js的触屏事件，主要有三个事件：touchstart，touchmove，touchend。<br><a id="more"></a><br>这三个事件最重要的属性是 pageX和 pageY，表示X坐标，Y坐标。<br>touchstart=在触摸开始时触发事件<br>touchend=在触摸结束时触发事件<br>touchmove=这个事件比较奇怪，按道理在触摸到过程中不断激发这个事件才对，但是在我的 Android 1.5 中，在 touchstart 激发后激发一次，然后剩余的都和 touchend 差不多同时激发。</p>
+        <p>开发移动端项目，虽然不用兼容头疼的IE浏览器，但是面对市场上各款手机兼容问题，也是一个持久战。这篇主要讲touch事件的兼容问题。<br><a id="more"></a></p>
+<h2 id="解決某些手机（移动端）无法触发touchend事件"><a href="#解決某些手机（移动端）无法触发touchend事件" class="headerlink" title="解決某些手机（移动端）无法触发touchend事件"></a>解決某些手机（移动端）无法触发touchend事件</h2><h3 id="触屏事件的基本过程"><a href="#触屏事件的基本过程" class="headerlink" title="触屏事件的基本过程"></a>触屏事件的基本过程</h3><p>js的触屏事件，主要有三个事件：touchstart，touchmove，touchend。</p>
+<p>这三个事件最重要的属性是 pageX和 pageY，表示X坐标，Y坐标。<br>touchstart=在触摸开始时触发事件<br>touchend=在触摸结束时触发事件<br>touchmove=这个事件比较奇怪，按道理在触摸到过程中不断激发这个事件才对，但是在我的 Android 1.5 中，在 touchstart 激发后激发一次，然后剩余的都和 touchend 差不多同时激发。</p>
 <p>而在我做的一个项目中，在某些手机上会出现不能触发touchend事件。</p>
 <p>部分代码如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> listSlideChange(options) &#123;</span><br><span class="line">	var delObj = options.find(<span class="string">'.cheque-sign-row'</span>),</span><br><span class="line">			touchStartX = 0,</span><br><span class="line">			touchMoveX = 0,</span><br><span class="line">			touchSlideValue = 0,</span><br><span class="line">			touchStartY = 0,</span><br><span class="line">			touchMoveY = 0,</span><br><span class="line">			touchSlideValue2 = 0,</span><br><span class="line">			boxWidth = 0;</span><br><span class="line">	<span class="keyword">for</span>(var i = 0; i &lt; delObj.length; i++) &#123;</span><br><span class="line">		(<span class="keyword">function</span>(i) &#123;</span><br><span class="line">			delObj.eq(i).off(<span class="string">"touchstart.touch"</span>).on(<span class="string">'touchstart.touch'</span>, <span class="keyword">function</span>(e) &#123;</span><br><span class="line">				moveFlag = <span class="literal">false</span>;</span><br><span class="line">				var e = e || window.event;</span><br><span class="line">				touchStartX = e.originalEvent.changedTouches[0].pageX;</span><br><span class="line">				touchStartY = e.originalEvent.changedTouches[0].pageY;</span><br><span class="line">			&#125;);</span><br><span class="line"></span><br><span class="line">			delObj.eq(i).off(<span class="string">"touchmove.touch"</span>).on(<span class="string">'touchmove.touch'</span>, <span class="keyword">function</span>(e) &#123;</span><br><span class="line">				<span class="keyword">if</span> ($(this).hasClass(<span class="string">"disabled"</span>)) &#123;</span><br><span class="line">					<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				var e = e || window.event;</span><br><span class="line">				boxWidth = parseInt($(<span class="string">'.transfer-plan-change'</span>).width());</span><br><span class="line">				var touchMoveX = e.originalEvent.changedTouches[0].pageX;</span><br><span class="line">				touchSlideValue = touchStartX - touchMoveX;</span><br><span class="line">				var touchMoveY = e.originalEvent.changedTouches[0].pageY;</span><br><span class="line">				touchSlideValue2 = touchStartY - touchMoveY;</span><br><span class="line">				</span><br><span class="line">				<span class="keyword">if</span>(Math.abs(touchSlideValue2)&lt;Math.abs(touchSlideValue))&#123;</span><br><span class="line">					<span class="keyword">if</span>(isSlideflag) &#123;</span><br><span class="line">						$(delObj).stop().animate(&#123;</span><br><span class="line">							<span class="string">'left'</span>: <span class="string">'0'</span></span><br><span class="line">						&#125;, 200);</span><br><span class="line">						touchSlideValue = 0;</span><br><span class="line">					&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">						<span class="keyword">if</span>(touchSlideValue &gt; 0 &amp;&amp; touchSlideValue &lt; boxWidth) &#123;</span><br><span class="line">							$(this).css(<span class="string">'left'</span>, -touchSlideValue);</span><br><span class="line">						&#125; <span class="keyword">else</span> <span class="keyword">if</span>(touchSlideValue &gt; boxWidth) &#123;</span><br><span class="line">							$(this).css(<span class="string">'left'</span>, -boxWidth);</span><br><span class="line">						&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">							$(this).css(<span class="string">'left'</span>, <span class="string">'0'</span>);</span><br><span class="line">							touchSlideValue = 0;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">					moveFlag = <span class="literal">true</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;);</span><br><span class="line">			delObj.eq(i).off(<span class="string">"touchend.touch"</span>).on(<span class="string">'touchend.touch'</span>, <span class="keyword">function</span>(e) &#123;</span><br><span class="line">				<span class="keyword">if</span> ($(this).hasClass(<span class="string">"disabled"</span>)) &#123;</span><br><span class="line">					<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				var e = e || window.event;</span><br><span class="line">				<span class="keyword">if</span>(moveFlag) &#123;</span><br><span class="line">					<span class="keyword">if</span>(touchSlideValue &gt; 60) &#123;</span><br><span class="line">						$(this).stop().animate(&#123;</span><br><span class="line">							<span class="string">'left'</span>: -boxWidth</span><br><span class="line">						&#125;, 200);</span><br><span class="line">						isSlideflag = <span class="literal">true</span>;</span><br><span class="line">					&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">						$(this).stop().animate(&#123;</span><br><span class="line">							<span class="string">'left'</span>: <span class="string">'0'</span></span><br><span class="line">						&#125;, 200);</span><br><span class="line">						touchSlideValue = 0;</span><br><span class="line">						isSlideflag = <span class="literal">false</span>;</span><br><span class="line">					&#125;</span><br><span class="line">					</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					<span class="keyword">if</span>(touchSlideValue === 0) &#123;</span><br><span class="line">						showChequeList($(this).find(<span class="string">".cheque-sign-arrow"</span>));</span><br><span class="line">					&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">						$(delObj).stop().animate(&#123;</span><br><span class="line">							<span class="string">'left'</span>: <span class="string">'0'</span></span><br><span class="line">						&#125;, 200);</span><br><span class="line">						touchSlideValue = 0;</span><br><span class="line">						isSlideflag = <span class="literal">false</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;)(i)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这是移动端最常见的功能，手指向左滑显示删除按钮。当你滑的比较少的距离，touchend时会隐藏这个删除按钮，只有你滑动到一定距离的时候，才会把整个删除按钮显示出来。而在某些手机上无法触发touchend事件，导致出现一半的按钮。</p>
@@ -449,8 +441,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/12/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/12/hello-world/" rel="prev" title="Hexo 的基本命令">
+                Hexo 的基本命令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -539,7 +531,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -550,7 +542,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

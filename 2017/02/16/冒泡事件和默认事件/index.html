@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="如何使用jQuery阻止事件冒泡和默认事件什么是事件冒泡？事件从事件目标开始，往上冒泡直到页面上的最上一级标签。（这与事件捕获顺序相反）">
+<meta name="description" content="浅淡事件冒泡和默认事件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="冒泡事件和默认事件">
 <meta property="og:url" content="https://yangyiii.github.io/2017/02/16/冒泡事件和默认事件/index.html">
 <meta property="og:site_name" content="Nora&#39;s blog">
-<meta property="og:description" content="如何使用jQuery阻止事件冒泡和默认事件什么是事件冒泡？事件从事件目标开始，往上冒泡直到页面上的最上一级标签。（这与事件捕获顺序相反）">
+<meta property="og:description" content="浅淡事件冒泡和默认事件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-02-16T07:26:46.711Z">
+<meta property="og:updated_time" content="2017-12-14T02:03:51.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="冒泡事件和默认事件">
-<meta name="twitter:description" content="如何使用jQuery阻止事件冒泡和默认事件什么是事件冒泡？事件从事件目标开始，往上冒泡直到页面上的最上一级标签。（这与事件捕获顺序相反）">
+<meta name="twitter:description" content="浅淡事件冒泡和默认事件">
 
 
 
@@ -226,16 +226,6 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
-            
-            站点地图
           </a>
         </li>
       
@@ -410,7 +400,9 @@
       
 
       
-        <h2 id="如何使用jQuery阻止事件冒泡和默认事件"><a href="#如何使用jQuery阻止事件冒泡和默认事件" class="headerlink" title="如何使用jQuery阻止事件冒泡和默认事件"></a>如何使用jQuery阻止事件冒泡和默认事件</h2><h3 id="什么是事件冒泡？"><a href="#什么是事件冒泡？" class="headerlink" title="什么是事件冒泡？"></a>什么是事件冒泡？</h3><p>事件从事件目标开始，往上冒泡直到页面上的最上一级标签。（这与事件捕获顺序相反）<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"content"</span>&gt;</span><br><span class="line">	外层div元素</span><br><span class="line">	&lt;span&gt;内层span元素&lt;/span&gt;</span><br><span class="line">	外层div元素</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div id=<span class="string">"msg"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	$(<span class="string">"#content"</span>).<span class="built_in">bind</span>(<span class="string">"click"</span>,<span class="keyword">function</span>(e)&#123;</span><br><span class="line">		var txt=$(<span class="string">"#msg"</span>).html()+<span class="string">"&lt;p&gt;外层div元素被点击&lt;/p&gt;"</span>;</span><br><span class="line">		$(<span class="string">"#msg"</span>).html(txt);</span><br><span class="line">	&#125;);</span><br><span class="line">	$(<span class="string">"span"</span>).<span class="built_in">bind</span>(<span class="string">"click"</span>,<span class="keyword">function</span>(e)&#123;</span><br><span class="line">		var txt=$(<span class="string">"#msg"</span>).html()+<span class="string">"&lt;p&gt;内层span元素被点击&lt;/p&gt;"</span>;</span><br><span class="line">		$(<span class="string">"#msg"</span>).html(txt);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+        <p>浅淡事件冒泡和默认事件<br><a id="more"></a></p>
+<h2 id="如何使用jQuery阻止事件冒泡和默认事件"><a href="#如何使用jQuery阻止事件冒泡和默认事件" class="headerlink" title="如何使用jQuery阻止事件冒泡和默认事件"></a>如何使用jQuery阻止事件冒泡和默认事件</h2><h3 id="什么是事件冒泡？"><a href="#什么是事件冒泡？" class="headerlink" title="什么是事件冒泡？"></a>什么是事件冒泡？</h3><p>事件从事件目标开始，往上冒泡直到页面上的最上一级标签。（这与事件捕获顺序相反）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"content"</span>&gt;</span><br><span class="line">	外层div元素</span><br><span class="line">	&lt;span&gt;内层span元素&lt;/span&gt;</span><br><span class="line">	外层div元素</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div id=<span class="string">"msg"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	$(<span class="string">"#content"</span>).<span class="built_in">bind</span>(<span class="string">"click"</span>,<span class="keyword">function</span>(e)&#123;</span><br><span class="line">		var txt=$(<span class="string">"#msg"</span>).html()+<span class="string">"&lt;p&gt;外层div元素被点击&lt;/p&gt;"</span>;</span><br><span class="line">		$(<span class="string">"#msg"</span>).html(txt);</span><br><span class="line">	&#125;);</span><br><span class="line">	$(<span class="string">"span"</span>).<span class="built_in">bind</span>(<span class="string">"click"</span>,<span class="keyword">function</span>(e)&#123;</span><br><span class="line">		var txt=$(<span class="string">"#msg"</span>).html()+<span class="string">"&lt;p&gt;内层span元素被点击&lt;/p&gt;"</span>;</span><br><span class="line">		$(<span class="string">"#msg"</span>).html(txt);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>当点击span元素时会触发click事件,显示内层span元素被点击，同时因为事件冒泡，会触发content元素绑定的事件。</p>
 <h3 id="为什么要阻止事件冒泡呢？"><a href="#为什么要阻止事件冒泡呢？" class="headerlink" title="为什么要阻止事件冒泡呢？"></a>为什么要阻止事件冒泡呢？</h3><p>当某个DOM节点绑定了某事件监听器时，本来是想该DOM节点触发事件，才来执行某种操作。结果是该节点的某后代节点触发某事件，由于事件冒泡，该DOM节点事件也会触发，执行了该绑定事件的操作，这样就违背了最初的本意。</p>
 <p>###如何阻止事件冒泡？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">	.box1&#123;</span><br><span class="line">		height:200px;</span><br><span class="line">		width:600px;</span><br><span class="line">		margin:0 auto;</span><br><span class="line">		border:1px solid <span class="comment">#000;</span></span><br><span class="line">	&#125;</span><br><span class="line">	.box1 a&#123;</span><br><span class="line">		display:block;</span><br><span class="line">		height:50%;</span><br><span class="line">		width:50%;</span><br><span class="line">		background:red;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
@@ -546,7 +538,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -557,7 +549,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
