@@ -79,21 +79,17 @@
 
 
 
-<meta name="description" content="最近做移动端项目时，经常会碰到span元素之间存在诡异的间隙问题。这种间隙会导致一些布局上的问题，下面是几种解决的方法。">
+<meta name="description" content="此篇粗略的讲解下变量/函数声明提升。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="span间隙">
-<meta property="og:url" content="https://yangyiii.github.io/2017/12/14/span间隙/index.html">
+<meta property="og:title" content="function">
+<meta property="og:url" content="https://yangyiii.github.io/2017/12/20/function/index.html">
 <meta property="og:site_name" content="Nora&#39;s blog">
-<meta property="og:description" content="最近做移动端项目时，经常会碰到span元素之间存在诡异的间隙问题。这种间隙会导致一些布局上的问题，下面是几种解决的方法。">
+<meta property="og:description" content="此篇粗略的讲解下变量/函数声明提升。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://yangyiii.github.io/2017/12/14/span间隙/images/span.png">
-<meta property="og:image" content="https://yangyiii.github.io/2017/12/14/span间隙/images/span.png">
-<meta property="og:image" content="https://yangyiii.github.io/2017/12/14/span间隙/images/span2.png">
-<meta property="og:updated_time" content="2017-12-14T03:18:06.940Z">
+<meta property="og:updated_time" content="2017-12-20T09:21:05.956Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="span间隙">
-<meta name="twitter:description" content="最近做移动端项目时，经常会碰到span元素之间存在诡异的间隙问题。这种间隙会导致一些布局上的问题，下面是几种解决的方法。">
-<meta name="twitter:image" content="https://yangyiii.github.io/2017/12/14/span间隙/images/span.png">
+<meta name="twitter:title" content="function">
+<meta name="twitter:description" content="此篇粗略的讲解下变量/函数声明提升。">
 
 
 
@@ -123,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://yangyiii.github.io/2017/12/14/span间隙/"/>
+  <link rel="canonical" href="https://yangyiii.github.io/2017/12/20/function/"/>
 
 
 
 
 
-  <title>span间隙 | Nora's blog</title>
+  <title>function | Nora's blog</title>
   
 
 
@@ -300,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yangyiii.github.io/2017/12/14/span间隙/">
+    <link itemprop="mainEntityOfPage" href="https://yangyiii.github.io/2017/12/20/function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Nora">
@@ -317,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">span间隙</h1>
+          <h1 class="post-title" itemprop="name headline">function</h1>
         
 
         <div class="post-meta">
@@ -329,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T10:24:44+08:00">
-                2017-12-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T16:24:08+08:00">
+                2017-12-20
               </time>
             
 
@@ -352,8 +348,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -370,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/14/span间隙/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/12/14/span间隙/" itemprop="commentsCount"></span>
+                <a href="/2017/12/20/function/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/12/20/function/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -404,20 +400,16 @@
       
 
       
-        <p>最近做移动端项目时，经常会碰到span元素之间存在诡异的间隙问题。这种间隙会导致一些布局上的问题，下面是几种解决的方法。<br><a id="more"></a></p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"demo"</span>&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</span><br><span class="line">	<span class="comment">#demo span &#123;display: inline-block; background-color: #ccc;&#125;</span></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p>效果如下<br><img src="images/span.png" alt="图片"></p>
-<p>在上述例子中，定义为inline-block的元素之间会产生间隙，那要是不定义为inline-block呢？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"demo"</span>&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</span><br><span class="line">	<span class="comment">#demo span &#123; background-color: #ccc;&#125;</span></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-<p>效果图<br><img src="images/span.png" alt="图片"></p>
-<p>上面例子中，对span元素不做任何处理，依然会存在间隙，那如果把span元素放在一行显示会是怎么样的效果？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"demo"</span>&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;&lt;span&gt;span元素&lt;/span&gt;&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</span><br><span class="line">	<span class="comment">#demo span &#123; background-color: #ccc;&#125;</span></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-<p>效果图<br><img src="images/span2.png" alt="图片"></p>
-<p>可以发现，span元素之间的空隙消失了。说明这个间隙是由换行或者回车导致的，只要把标签写成一行就不会出现间隙，但是这种方法不太可靠，常常会因为一些因素失效。<br>下面介绍一下几种写法：<br>写法1：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"demo"</span>&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;&lt;span&gt;span元素&lt;/span&gt;&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>写法2：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"demo"</span>&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;&lt;span&gt;</span><br><span class="line">	span元素&lt;/span&gt;&lt;span&gt;</span><br><span class="line">	span元素&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>写法3：利用HTML注释标签<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"demo"</span>&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;&lt;!--</span><br><span class="line">	--&gt;&lt;span&gt;span元素&lt;/span&gt;&lt;!--</span><br><span class="line">	--&gt;&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>写法4：取消标签闭合<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"demo"</span>&gt;</span><br><span class="line">	&lt;span&gt;span元素</span><br><span class="line">	&lt;span&gt;span元素</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>把span结束标签去掉，但需注意最后一个标签需要闭合。</p>
-<p>写法5：把父级的font-size设为0,在子元素上设置相应的字体大小<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"demo"</span>&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</span><br><span class="line">	<span class="comment">#demo &#123;font-size:0;&#125;</span></span><br><span class="line">	<span class="comment">#demo span &#123; background-color: #ccc;font-size:14px;&#125;</span></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-<p>对于Chrome, 其默认有最小字体大小限制，考虑到兼容性，需要取消字体大小限制，这样写：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"demo"</span>&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">	&lt;span&gt;span元素&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</span><br><span class="line">	<span class="comment">#demo &#123;font-size:0;-webkit-text-size-adjust:none;&#125;</span></span><br><span class="line">	<span class="comment">#demo span &#123; background-color: #ccc;font-size:14px;&#125;</span></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+        <p>此篇粗略的讲解下变量/函数声明提升。<br><a id="more"></a></p>
+<p>###什么是变量提升呢？<br>正如字面意思，就是把定义在后面的变量或函数，提升到前面来使用。<br>变量提升，简单来说，就是把定义的变量提升到一块作用域当中（或者说一个函数）顶端的位置，需要注意的是，变量提升，只是提示变量的声明，并不会将变量的赋值一同提升上来。<br>比如下面代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	var a = 1;</span><br><span class="line">	var b = 2;</span><br><span class="line">	var c = 3;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<p>我们在函数中定义了3个变量，而实际上，相当于这种写法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	var a,b,c；</span><br><span class="line">	a = 1;</span><br><span class="line">	b = 2;</span><br><span class="line">	c = 3;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<p>###函数声明提升<br>函数创建有两种方法<br>函数声明语法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f(<span class="string">'hello world!'</span>);</span><br><span class="line"><span class="keyword">function</span> f(name) &#123;</span><br><span class="line">	console.log(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行上面的程序，控制台能打印出hello world!<br>函数表达式语法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f(<span class="string">'hello world!'</span>);</span><br><span class="line">var f = <span class="keyword">function</span>(name) &#123;</span><br><span class="line">	console.log(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行上面的代码，会报错Uncaught ReferenceError: f is not defined(…)错误信息，显示f没有被定义。<br>因为，函数声明有一个非常重要的特征：函数声明提升，函数声明语句将会被提升到外部脚本或者外部函数作用域的顶部。正是因为这个特征，所以可以把函数声明刚在调用它的语句后面。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var getName = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(2);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">getName</span></span>()&#123;</span><br><span class="line">	console.log(1);</span><br><span class="line">&#125;</span><br><span class="line">getName();</span><br></pre></td></tr></table></figure></p>
+<p>正如前面所说到的函数声明提升，函数声明function getName(){}的声明会被提前到顶部，而函数表达式var getName = function(){}则表现出变量提升。因此在这种情况下，getName也是一个变量，因此这个变量的声明也将提升到顶部，而变量的赋值依然保留在原来的位置。<br>相当于<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var getName;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">getName</span></span>()&#123;</span><br><span class="line">	console.log(1);</span><br><span class="line">&#125;</span><br><span class="line">getName = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(2);</span><br><span class="line">&#125;</span><br><span class="line">getName();    //最终输出2</span><br></pre></td></tr></table></figure></p>
+<p>在原来的例子中，函数声明虽然是在函数表达式后面，但由于函数声明提升到顶部，因此后面getName又被函数表达式的赋值操作给覆盖了，所以输出2.</p>
+<p>下面一题来测测你是否完全理解<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Foo</span></span>()&#123;</span><br><span class="line">	getName = <span class="function"><span class="title">function</span></span>()&#123; alert(1) &#125;;</span><br><span class="line">	<span class="built_in">return</span> this;</span><br><span class="line">&#125;</span><br><span class="line">Foo.getName = <span class="function"><span class="title">function</span></span>()&#123; alert(2) &#125;;</span><br><span class="line">Foo.prototype.getName = <span class="function"><span class="title">function</span></span>()&#123; alert(3) &#125;;</span><br><span class="line">var getName = <span class="function"><span class="title">function</span></span>()&#123; alert(4) &#125;;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">getName</span></span>()&#123; alert(5) &#125;;</span><br><span class="line">Foo.getName();</span><br><span class="line">getName();</span><br><span class="line">Foo().getName();</span><br><span class="line">getName();</span><br><span class="line">new Foo.getName();</span><br><span class="line">new Foo().getName();</span><br><span class="line">new new Foo().getName();</span><br></pre></td></tr></table></figure></p>
+<p>答案<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Foo.getName();              //2</span><br><span class="line">getName();                  //4</span><br><span class="line">Foo().getName();            //1</span><br><span class="line">getName();                  //1</span><br><span class="line">new Foo.getName();          //2</span><br><span class="line">new Foo().getName();        //3</span><br><span class="line">new new Foo().getName();    //3</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -442,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/12/hello-world/" rel="next" title="Hexo 的基本命令">
-                <i class="fa fa-chevron-left"></i> Hexo 的基本命令
+              <a href="/2017/12/14/span间隙/" rel="next" title="span间隙">
+                <i class="fa fa-chevron-left"></i> span间隙
               </a>
             
           </div>
@@ -451,10 +443,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/20/function/" rel="prev" title="function">
-                function <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -513,17 +501,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -580,22 +559,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4F8B;&#x5B50;" class="headerlink" title="&#x4F8B;&#x5B50;"></a>&#x4F8B;&#x5B50;</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
