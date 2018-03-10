@@ -114,22 +114,4 @@
     
   </entry>
   
-  <entry>
-    <title>web前端常见面题</title>
-    <link href="https://yangyiii.github.io/2017/01/19/web%E5%89%8D%E7%AB%AF%E5%B8%B8%E8%A7%81%E9%9D%A2%E9%A2%98/"/>
-    <id>https://yangyiii.github.io/2017/01/19/web前端常见面题/</id>
-    <published>2017-01-19T08:56:45.000Z</published>
-    <updated>2017-02-16T06:49:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一些常见的前端面试题"><a href="#一些常见的前端面试题" class="headerlink" title="一些常见的前端面试题"></a>一些常见的前端面试题</h2><ol><br><li><br> Doctype作用？标准模式与兼容模式各有什么区别?<br>（1）&lt;!DOCTYPE&gt;声明位于位于HTML文档中的第一行，处于 <html> 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。<br><a id="more"></a><br>（2）标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。<br></html></li><br></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一些常见的前端面试题&quot;&gt;&lt;a href=&quot;#一些常见的前端面试题&quot; class=&quot;headerlink&quot; title=&quot;一些常见的前端面试题&quot;&gt;&lt;/a&gt;一些常见的前端面试题&lt;/h2&gt;&lt;ol&gt;&lt;br&gt;&lt;li&gt;&lt;br&gt; Doctype作用？标准模式与兼容模式各有什么区别?&lt;br&gt;（1）&amp;lt;!DOCTYPE&amp;gt;声明位于位于HTML文档中的第一行，处于 &lt;html&gt; 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
 </feed>
