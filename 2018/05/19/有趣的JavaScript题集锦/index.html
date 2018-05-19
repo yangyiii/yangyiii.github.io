@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/head.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/head.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/head.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jquery,web" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Nora's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="容易出错的JavaScript题目集锦1.typeof(null) 会得到什么？object,在JavaScript中null被认为是一个对象。 2.下列代码将输出控制台的是什么？为什么？123456(function()&amp;#123;  var a = b = 3;&amp;#125;)();console.log(&quot;a defined? &quot; + (typeof a !== &apos;undefined&apos;));c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nora&#39;s blog">
+<meta property="og:url" content="https://yangyiii.github.io/2018/05/19/有趣的JavaScript题集锦/index.html">
+<meta property="og:site_name" content="Nora&#39;s blog">
+<meta property="og:description" content="容易出错的JavaScript题目集锦1.typeof(null) 会得到什么？object,在JavaScript中null被认为是一个对象。 2.下列代码将输出控制台的是什么？为什么？123456(function()&amp;#123;  var a = b = 3;&amp;#125;)();console.log(&quot;a defined? &quot; + (typeof a !== &apos;undefined&apos;));c">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-19T07:42:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nora&#39;s blog">
+<meta name="twitter:description" content="容易出错的JavaScript题目集锦1.typeof(null) 会得到什么？object,在JavaScript中null被认为是一个对象。 2.下列代码将输出控制台的是什么？为什么？123456(function()&amp;#123;  var a = b = 3;&amp;#125;)();console.log(&quot;a defined? &quot; + (typeof a !== &apos;undefined&apos;));c">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://yangyiii.github.io/2018/05/19/有趣的JavaScript题集锦/"/>
+
+
+
+
+
+  <title> | Nora's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/yangyiii" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Nora's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Love Coding</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yangyiii.github.io/2018/05/19/有趣的JavaScript题集锦/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nora">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nora's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-19T15:42:05+08:00">
+                2018-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/19/有趣的JavaScript题集锦/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/05/19/有趣的JavaScript题集锦/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="容易出错的JavaScript题目集锦"><a href="#容易出错的JavaScript题目集锦" class="headerlink" title="容易出错的JavaScript题目集锦"></a>容易出错的JavaScript题目集锦</h3><p>1.typeof(null) 会得到什么？<br>object,在JavaScript中null被认为是一个对象。</p>
+<p>2.下列代码将输出控制台的是什么？为什么？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  var a = b = 3;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">console.log(<span class="string">"a defined? "</span> + (typeof a !== <span class="string">'undefined'</span>));</span><br><span class="line">console.log(<span class="string">"b defined? "</span> + (typeof b !== <span class="string">'undefined'</span>));</span><br></pre></td></tr></table></figure></p>
+<p>由于a和b都在函数的封闭范围内定义，并且由于它们所在的行以var关键字开头,<br>因此大多数JavaScript开发人员会希望typeof a和typeof b在上面的示例中都未定义。<br>但是，情况并非如此。这里的问题是大多数开发人员错误地理解语句var a = b = 3;以下简写为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var b = 3;</span><br><span class="line">var a = b;</span><br></pre></td></tr></table></figure></p>
+<p>但实际上，var a = b = 3;其实是速记：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = 3;</span><br><span class="line">var a = b;</span><br></pre></td></tr></table></figure></p>
+<p>因此（如果您不使用严格模式），代码片段的输出将为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a defined? <span class="literal">false</span></span><br><span class="line">b defined? <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<p>但是如何在封闭函数的范围之外定义b？那么，因为声明var a = b = 3;是语句b = 3的简写;并且var a = b;<br>b最终成为一个全局变量（因为它不在var关键字后面），因此它仍然在作用域内，即使在封闭函数之外。</p>
+<p>注意，在严格模式下（即，使用strict），语句var a = b = 3;会产生一个ReferenceError的运行时错误：<br>b没有定义，从而避免了可能导致的任何头headfakes/bugs。 （这就是为什么你应该在你的代码中使用strict，一个重要的例子！）</p>
+<p>3.下面的代码将输出到控制台的是什么？，为什么？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var myObject = &#123;</span><br><span class="line">    foo: <span class="string">"bar"</span>,</span><br><span class="line">    func: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        var self = this;</span><br><span class="line">        console.log(<span class="string">"outer func: this.foo = "</span> + this.foo);</span><br><span class="line">        console.log(<span class="string">"outer func: self.foo = "</span> + self.foo);</span><br><span class="line">        (<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            console.log(<span class="string">"inner func: this.foo = "</span> + this.foo);</span><br><span class="line">            console.log(<span class="string">"inner func: self.foo = "</span> + self.foo);</span><br><span class="line">        &#125;());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">myObject.func();</span><br></pre></td></tr></table></figure></p>
+<p>在控制台将会输出如下结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">outer func: this.foo = bar</span><br><span class="line">outer func: self.foo = bar</span><br><span class="line">inner func: this.foo = undefined</span><br><span class="line">inner func: self.foo = bar</span><br></pre></td></tr></table></figure></p>
+<p>在外面函数中self和this都指向myObject,因此都能访问到myObject中的foo属性。<br>在内部函数中，此时this的指向已经是window，而window中没有foo属性，所以为undefined。</p>
+<p>4.考虑下面的两个函数。他们都会返回同样的值吗？为什么或者为什么不？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo1</span></span>()&#123;</span><br><span class="line">  <span class="built_in">return</span> &#123;</span><br><span class="line">      bar: <span class="string">"hello"</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo2</span></span>()&#123;</span><br><span class="line">  <span class="built_in">return</span></span><br><span class="line">  &#123;</span><br><span class="line">      bar: <span class="string">"hello"</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>令人惊讶的是，这两个函数不会返回相同的结果。而是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="string">"foo1 returns:"</span>);</span><br><span class="line">console.log(foo1());</span><br><span class="line">console.log(<span class="string">"foo2 returns:"</span>);</span><br><span class="line">console.log(foo2());</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foo1 returns:</span><br><span class="line">Object &#123;bar: <span class="string">"hello"</span>&#125;</span><br><span class="line">foo2 returns:</span><br><span class="line">undefined</span><br></pre></td></tr></table></figure>
+<p>这不仅令人惊讶，而且特别令人烦恼的是，foo2()返回未定义而没有引发任何错误。<br>原因与JavaScript中分号在技术上是可选的事实有关（尽管忽略它们通常是非常糟糕的形式）。因此，在foo2()中遇到包含return语句的行<br>（没有其他内容）时，会在return语句之后立即自动插入分号。<br>由于代码的其余部分是完全有效的，即使它没有被调用或做任何事情（它只是一个未使用的代码块，它定义了一个属性栏，它等于字符串“hello”），<br>所以不会抛出任何错误。<br>这种行为也被认为是遵循了在JavaScript中将一行开头大括号放在行尾的约定，而不是在新行的开头。如此处所示，这不仅仅是JavaScript中的一种风格偏好。</p>
+<p>5.下面的代码输出什么？解释你的答案。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(0.1 + 0.2);</span><br><span class="line">console.log(0.1 + 0.2 == 0.3);</span><br></pre></td></tr></table></figure></p>
+<p>上面提供的示例是演示此问题的经典案例。令人惊讶的是，它会打印出来：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0.30000000000000004</span><br><span class="line"><span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<p>一个典型的解决方案是比较两个数字与特殊常数Number.EPSILON之间的绝对差值：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> areTheNumbersAlmostEqual(num1, num2) &#123;</span><br><span class="line">    <span class="built_in">return</span> Math.abs( num1 - num2 ) &lt; Number.EPSILON;</span><br><span class="line">&#125;</span><br><span class="line">console.log(areTheNumbersAlmostEqual(0.1 + 0.2, 0.3));</span><br></pre></td></tr></table></figure></p>
+<p>Math.abs()是取得数据的绝对值，Number.EPSILON 属性表示 1 和大于 1 的最小值（可表示为 Number）的差值。</p>
+<p>6.编写一个简单的函数（少于160个字符），返回一个布尔值，指示字符串是否是回文。<br>如果str是回文，以下一行函数将返回true;否则，它返回false。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> isPalindrome(str) &#123;</span><br><span class="line">  str = str.replace(/\W/g, <span class="string">''</span>).toLowerCase();</span><br><span class="line">  <span class="built_in">return</span> (str == str.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(isPalindrome(<span class="string">"level"</span>)); //  <span class="string">'true'</span></span><br><span class="line">console.log(isPalindrome(<span class="string">"levels"</span>)); //  <span class="string">'false'</span></span><br><span class="line">console.log(isPalindrome(<span class="string">"A car, a man, a maraca"</span>)); //  <span class="string">'true'</span></span><br></pre></td></tr></table></figure>
+<p>7.考虑下面的代码片段<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (var i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">  var btn = document.createElement(<span class="string">'button'</span>);</span><br><span class="line">  btn.appendChild(document.createTextNode(<span class="string">'Button '</span> + i));</span><br><span class="line">  btn.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="title">function</span></span>()&#123; console.log(i); &#125;);</span><br><span class="line">  document.body.appendChild(btn);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(a) 当用户点击“按钮4”时，什么被记录到控制台？为什么？<br>(b) 提供一个或多个可按预期工作的替代实现。<br>答：<br>(a) 无论用户点击哪个按钮，数字5将始终记录到控制台。这是因为，在调用onclick方法（对于任何按钮）时，for循环已经完成，并且变量i已经具有值5.<br>（如果受访者知道足够的话就可以获得奖励点数关于执行上下文，变量对象，激活对象和内部“范围”属性如何影响闭包行为。）<br>(b) 使这项工作的关键是通过将它传递给新创建的函数对象来捕获每次通过for循环的i的值。以下是四种可能的方法来实现这一点：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (var i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">  var btn = document.createElement(<span class="string">'button'</span>);</span><br><span class="line">  btn.appendChild(document.createTextNode(<span class="string">'Button '</span> + i));</span><br><span class="line">  btn.addEventListener(<span class="string">'click'</span>, (<span class="keyword">function</span>(i)&#123; </span><br><span class="line">  	<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  		console.log(i)</span><br><span class="line">  	&#125;</span><br><span class="line">  &#125;)(i));</span><br><span class="line">  document.body.appendChild(btn);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者，您可以将新的匿名函数中的整个调用包装为btn.addEventListener：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (var i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">  var btn = document.createElement(<span class="string">'button'</span>);</span><br><span class="line">  btn.appendChild(document.createTextNode(<span class="string">'Button '</span> + i));</span><br><span class="line">  (<span class="keyword">function</span>(i)&#123;</span><br><span class="line">  	btn.addEventListener(<span class="string">"click"</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  		console.log(i)</span><br><span class="line">  	&#125;)</span><br><span class="line">  &#125;)(i)</span><br><span class="line">  document.body.appendChild(btn);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最后，最简单的解决方案，如果你在ES6 / ES2015上下文中，就是使用let i而不是var i：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">  var btn = document.createElement(<span class="string">'button'</span>);</span><br><span class="line">  btn.appendChild(document.createTextNode(<span class="string">'Button '</span> + i));</span><br><span class="line">  btn.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="title">function</span></span>()&#123; console.log(i); &#125;);</span><br><span class="line">  document.body.appendChild(btn);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>8.下面的代码将输出到控制台,输出结果是什么？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(1 + <span class="string">"2"</span> + <span class="string">"2"</span>);</span><br><span class="line">console.log(1 + +<span class="string">"2"</span> + <span class="string">"2"</span>);</span><br><span class="line">console.log(1 + -<span class="string">"1"</span> + <span class="string">"2"</span>);</span><br><span class="line">console.log(+<span class="string">"1"</span> + <span class="string">"1"</span> + <span class="string">"2"</span>);</span><br><span class="line">console.log( <span class="string">"A"</span> - <span class="string">"B"</span> + <span class="string">"2"</span>);</span><br><span class="line">console.log( <span class="string">"A"</span> - <span class="string">"B"</span> + 2);</span><br></pre></td></tr></table></figure></p>
+<p>输出的结果为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"122"</span></span><br><span class="line"><span class="string">"32"</span></span><br><span class="line"><span class="string">"02"</span></span><br><span class="line"><span class="string">"112"</span></span><br><span class="line"><span class="string">"NaN2"</span></span><br><span class="line"><span class="string">"NaN"</span></span><br></pre></td></tr></table></figure></p>
+<p>这里的基本问题是JavaScript（ECMAScript）是一种松散类型的语言，它对值执行自动类型转换以适应正在执行的操作。让我们来看看这是如何与上面的每个例子进行比较。<br>示例1：1 +“2”+“2”输出：“122”说明：第一个操作在1 +“2”中执行。由于其中一个操作数（“2”）是一个字符串，所以JavaScript假定需要执行字符串连接，因此将1的类型转换为“1”，1 +“2”转换为“12”。然后，“12”+“2”产生“122”。<br>示例2：1 + +“2”+“2”输出：“32”说明：根据操作顺序，要执行的第一个操作是+“2”（第一个“2”之前的额外+被视为一个一元运算符）。因此，JavaScript将“2”的类型转换为数字，然后将一元+符号应用于它（即将其视为正数）。结果，下一个操作现在是1 + 2，当然这会产生3.但是，我们有一个数字和一个字符串之间的操作（即3和“2”），所以JavaScript再次转换数值赋给一个字符串并执行字符串连接，产生“32”。<br>示例3：1 + - “1”+“2”输出：“02”说明：这里的解释与前面的示例相同，只是一元运算符是 - 而不是+。因此，“1”变为1，然后在应用 - 时将其变为-1，然后将其加1到产生0，然后转换为字符串并与最终的“2”操作数连接，产生“02”。<br>示例4：+“1”+“1”+“2”输出：“112”说明：尽管第一个“1”操作数是基于其前面的一元+运算符的数值类型转换的，当它与第二个“1”操作数连接在一起时返回一个字符串，然后与最终的“2”操作数连接，产生字符串“112”。<br>示例5：“A” - “B”+“2”输出：“NaN2”说明：由于 - 运算符不能应用于字符串，并且既不能将“A”也不能将“B”转换为数值， “ - ”B“产生NaN，然后与字符串”2“串联产生”NaN2“。<br>例6：“A” - “B”+2输出：NaN说明：在前面的例子中，“A” - “B”产生NaN。但是任何运算符应用于NaN和其他数字操作数仍然会产生NaN。</p>
+<p>9.以下代码的输出是什么：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (var i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="title">function</span></span>() &#123; console.log(i); &#125;, i * 1000 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>显示的代码示例不会显示值0,1,2,3和4，这可能是预期的;而是显示5,5,5,5,5。<br>这是因为循环内执行的每个函数将在整个循环完成后执行，因此所有函数都会引用存储在i中的最后一个值，即5。<br>通过为每次迭代创建一个唯一的作用域，可以使用闭包来防止这个问题，并将该变量的每个唯一值存储在其作用域中，如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (var i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">		(<span class="keyword">function</span>(i)&#123;</span><br><span class="line">			setTimeout(<span class="function"><span class="title">function</span></span>() &#123; console.log(i); &#125;, i * 1000);</span><br><span class="line">		&#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在ES2015上下文中，您可以在原始代码中简单地使用let而不是var：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="title">function</span></span>() &#123; console.log(i); &#125;, i * 1000 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>10.以下代码的输出是什么？解释你的答案。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a=&#123;&#125;,</span><br><span class="line">    b=&#123;key:<span class="string">'b'</span>&#125;,</span><br><span class="line">    c=&#123;key:<span class="string">'c'</span>&#125;;</span><br><span class="line"></span><br><span class="line">a[b]=123;</span><br><span class="line">a[c]=456;</span><br><span class="line"></span><br><span class="line">console.log(a[b]);</span><br></pre></td></tr></table></figure></p>
+<p>此代码的输出将是456（不是123）。<br>原因如下：设置对象属性时，JavaScript会隐式地将参数值串联起来。在这种情况下，由于b和c都是对象，它们都将被转换为“[object Object]”。因此，a [b]和a [c]都等价于[“[object Object]”]，并且可以互换使用。因此，设置或引用[c]与设置或引用[b]完全相同。</p>
+<p>11.以下代码将输出到控制台以及为什么<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var hero = &#123;</span><br><span class="line">    _name: <span class="string">'John Doe'</span>,</span><br><span class="line">    getSecretIdentity: <span class="function"><span class="title">function</span></span> ()&#123;</span><br><span class="line">        <span class="built_in">return</span> this._name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var stoleSecretIdentity = hero.getSecretIdentity;</span><br><span class="line"></span><br><span class="line">console.log(stoleSecretIdentity());</span><br><span class="line">console.log(hero.getSecretIdentity());</span><br></pre></td></tr></table></figure></p>
+<p>这段代码有什么问题，以及如何解决这个问题。<br>该代码将输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">undefined</span><br><span class="line">John Doe</span><br></pre></td></tr></table></figure></p>
+<p>第一个console.log打印未定义，因为我们从hero对象中提取方法，所以stoleSecretIdentity()在window上下文的执行环境中被调用，而window中没有定义_name属性，所以为underfined。</p>
+<p>修复stoleSecretIdentity()函数的一种方法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var hero = &#123;</span><br><span class="line">    _name: <span class="string">'John Doe'</span>,</span><br><span class="line">    getSecretIdentity: <span class="function"><span class="title">function</span></span> ()&#123;</span><br><span class="line">        <span class="built_in">return</span> this._name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var stoleSecretIdentity = hero.getSecretIdentity.bind(hero);</span><br><span class="line"></span><br><span class="line">console.log(stoleSecretIdentity());</span><br><span class="line">console.log(hero.getSecretIdentity());</span><br></pre></td></tr></table></figure></p>
+<p>12.以下输出的是什么？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var length = 10;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span>() &#123;</span><br><span class="line">    console.log(this.length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj = &#123;</span><br><span class="line">  length: 5,</span><br><span class="line">  method: <span class="keyword">function</span>(fn) &#123;</span><br><span class="line">    fn();</span><br><span class="line">    arguments[0]();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.method(fn, 1);</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
+<p>为什么不是10和5？</p>
+<p>首先，由于fn作为函数方法的参数传递，函数fn的作用域（this）是窗口。 var length = 10;在窗口级别声明。它也可以作为window.length或length或this.length来访问（当这个===窗口时）。</p>
+<p>方法绑定到Object obj，obj.method用参数fn和1调用。虽然方法只接受一个参数，但调用它时已经传递了两个参数;第一个是函数回调，其他只是一个数字。</p>
+<p>当在内部方法中调用fn()时，该函数在全局级别作为参数传递，this.length将有权访问在Object obj中定义的var length = 10（全局声明）而不是length = 5。</p>
+<p>现在，我们知道我们可以使用arguments []数组访问JavaScript函数中的任意数量的参数。</p>
+<p>因此arguments0只不过是调用fn()。在fn里面，这个函数的作用域成为参数数组，并且记录参数[]的长度将返回2。</p>
+<p>13.考虑下面的代码。输出是什么，为什么？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        throw new Error();</span><br><span class="line">    &#125; catch (x) &#123;</span><br><span class="line">        var x = 1, y = 2;</span><br><span class="line">        console.log(x);</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(x);</span><br><span class="line">    console.log(y);</span><br><span class="line">&#125;)();</span><br><span class="line">1</span><br><span class="line">undefined</span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
+<p>var语句被挂起（没有它们的值初始化）到它所属的全局或函数作用域的顶部，即使它位于with或catch块内。但是，错误的标识符只在catch块内部可见。它相当于：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    var x, y; // outer and hoisted</span><br><span class="line">    try &#123;</span><br><span class="line">        throw new Error();</span><br><span class="line">    &#125; catch (x /* inner */) &#123;</span><br><span class="line">        x = 1; // inner x, not the outer one</span><br><span class="line">        y = 2; // there is only one y, <span class="built_in">which</span> is <span class="keyword">in</span> the outer scope</span><br><span class="line">        console.log(x /* inner */);</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(x);</span><br><span class="line">    console.log(y);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>14.以下几行输出什么，为什么？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(1 &lt; 2 &lt; 3);</span><br><span class="line">console.log(3 &gt; 2 &gt; 1);</span><br></pre></td></tr></table></figure></p>
+<p>第一条语句返回true，如预期的那样。</p>
+<p>第二个返回false是因为引擎如何针对&lt;和&gt;的操作符关联性工作。它比较从左到右，所以3&gt; 2&gt; 1 JavaScript翻译为true&gt; 1. true具有值1，因此它比较1&gt; 1，这是错误的。</p>
+<p>15.如何在数组的开头添加元素？最后如何添加一个？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var myArray = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>];</span><br><span class="line">myArray.push(<span class="string">'end'</span>);</span><br><span class="line">myArray.unshift(<span class="string">'start'</span>);</span><br><span class="line">console.log(myArray); // [<span class="string">"start"</span>, <span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"end"</span>]</span><br></pre></td></tr></table></figure></p>
+<p>使用ES6，可以使用扩展运算符：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">myArray = [<span class="string">'start'</span>, ...myArray];</span><br><span class="line">myArray = [...myArray, <span class="string">'end'</span>];</span><br></pre></td></tr></table></figure></p>
+<p>或者，简而言之：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myArray = [<span class="string">'start'</span>, ...myArray, <span class="string">'end'</span>];</span><br></pre></td></tr></table></figure></p>
+<p>15.代码返回后会怎么样？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(typeof typeof 1);</span><br></pre></td></tr></table></figure></p>
+<p>打印结果：string<br>typeof 1将返回“number”，typeof“number”将返回字符串。</p>
+<p>16.以下代码输出什么？为什么？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var b = 1;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">outer</span></span>()&#123;</span><br><span class="line">       var b = 2</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">inner</span></span>()&#123;</span><br><span class="line">        b++;</span><br><span class="line">        var b = 3;</span><br><span class="line">        console.log(b)</span><br><span class="line">    &#125;</span><br><span class="line">    inner();</span><br><span class="line">&#125;</span><br><span class="line">outer();</span><br></pre></td></tr></table></figure></p>
+<p>输出到控制台将是“3”。</p>
+<p>在这个例子中有三个闭包，每个都有它自己的var b声明。当调用变量时，将按照从本地到全局的顺序检查闭包，直到找到实例。由于内部闭包有自己的b变量，这就是输出。</p>
+<p>此外，由于提升内部的代码将被解释如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">inner</span></span> () &#123;</span><br><span class="line">    var b; // b is undefined</span><br><span class="line">    b++; // b is NaN</span><br><span class="line">    b = 3; // b is 3</span><br><span class="line">    console.log(b); // output <span class="string">"3"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上来自于xiaosheng222</p>
+<p>17.以下代码输出什么？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var animal = <span class="function"><span class="title">function</span></span>()&#123;&#125;;</span><br><span class="line">var dog = <span class="function"><span class="title">function</span></span>()&#123;&#125;; </span><br><span class="line">animal.price = 2000;</span><br><span class="line">dog.prototype = animal; </span><br><span class="line">var tiddy = new dog();</span><br><span class="line">alert(dog.price);/*underfined*/</span><br><span class="line">alert(tiddy.price);/*2000*/</span><br></pre></td></tr></table></figure></p>
+<p>因为原型链是依赖于<strong>proto</strong>，而不是prototype。dog是函数对象，本身没有price属性，此时dog的<strong>proto</strong>属性指向的是其构造函数的原型。 dog的构造函数就是Function，因为var dog = function(){};语句实际上是var dog = new Function();，所以，dog.<strong>proto</strong> === Function.prototype；⽽而Function.prototype并没有price属性，如果加一句：Function.prototype.price = 123；那么第一个打印就是<br>123；<br>如此依赖，tidy是一个普通对象，由dog函数构造而来，因此tidy<strong>proto</strong> == dog.prototype == animal；所以当tidy上找不到price属性时，会从<strong>proto</strong>寻找原型上的方法，找到animal对象， animal对象有price属性，则返回。</p>
+<p>18.以下题目弹出的值是多少？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a=b=0; </span><br><span class="line">var c=d=&#123;x:1&#125;; </span><br><span class="line">b = 1;</span><br><span class="line">d.x = 1; </span><br><span class="line">alert(<span class="string">"a的值为："</span>+a+<span class="string">" b的值为:"</span>+b);</span><br><span class="line">alert(<span class="string">"c.x的值为："</span>+c.x+<span class="string">" d.x的值为:"</span>+d.x);</span><br></pre></td></tr></table></figure></p>
+<p>弹出的结果为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a的值为：0 b的值为：1</span><br><span class="line">c.x的值为：1 d.x的值为：1</span><br></pre></td></tr></table></figure></p>
+<p>此题考查的是基本类型和引用类型 a 声明变量时不同的内存分配。<br>1）    原始值：存储在栈（stack）中的简单数据段，也就是说，它们的值直接存储在变量访问的位置。这是因为这些原始类型占据的空间是固定的，所以可将他们存储在较小的内存区域 – 栈中。这样存储便于迅速查寻变量的值。<br>2）    引用值：存储在堆（heap）中的对象，也就是说，存储在变量处的值是⼀一个指针（point），指向存储对象的内存地址。 </p>
+<p>19.以下代码执行结果是多少？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(1 == <span class="string">"1"</span>)&#123;</span><br><span class="line">  var x = 1;</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">  var z = 1;</span><br><span class="line">&#125; </span><br><span class="line">console.log(x);</span><br><span class="line">console.log(z);</span><br></pre></td></tr></table></figure></p>
+<p>由于变量提升的缘故，相当于<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var x;</span><br><span class="line">var z;</span><br><span class="line"><span class="keyword">if</span>(1 == <span class="string">"1"</span>)&#123;</span><br><span class="line">	x = 1;</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">	z = 1;</span><br><span class="line">&#125;</span><br><span class="line">console.log(x);</span><br><span class="line">console.log(z);</span><br></pre></td></tr></table></figure></p>
+<p>所以输出结果x为1，z为undefined </p>
+<p>20.如何使数组去重?<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4,3,2,2,1];</span><br><span class="line">var newArr = [];</span><br><span class="line"><span class="keyword">for</span>(var i=0; i&lt;arr.length;i++)&#123; </span><br><span class="line">	<span class="keyword">if</span>(newArr.indexOf(arr[i]) == -1)&#123; </span><br><span class="line">		newArr.push(arr[i])</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line">console.log(newArr)</span><br></pre></td></tr></table></figure></p>
+<p>21.如何返回一个字符串中出现次数多的字母<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var str = <span class="string">"absbdsbdudbsu"</span>;</span><br><span class="line"><span class="keyword">function</span> count(str)&#123;</span><br><span class="line">  	<span class="keyword">if</span>(str.length == 1)&#123;</span><br><span class="line">  	  <span class="built_in">return</span> str;  	</span><br><span class="line">  	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">  	  var wordNum = &#123;&#125;;</span><br><span class="line">  	  <span class="keyword">for</span>(var i=0;i&lt;str.length;i++)&#123;</span><br><span class="line">  	    <span class="keyword">if</span>(!wordNum[str.charAt(i)])&#123;</span><br><span class="line">  	      wordNum[str.charAt(i)] = 1; </span><br><span class="line"> 	 	 		&#125;<span class="keyword">else</span> &#123; </span><br><span class="line"> 	 	 	 		wordNum[str.charAt(i)]++; </span><br><span class="line"> 	 	 		&#125; </span><br><span class="line"> 	 	&#125; </span><br><span class="line"> 	 	var wordMax = <span class="string">''</span>,</span><br><span class="line"> 	 	  	max = 0;</span><br><span class="line"> 	 	<span class="keyword">for</span>(var i <span class="keyword">in</span> wordNum)&#123;</span><br><span class="line"> 	 	  <span class="keyword">if</span>(wordNum[i]&gt;max)&#123;</span><br><span class="line"> 	 	    wordMax = i;    	 	 	</span><br><span class="line"> 	 	    max = wordNum[i] </span><br><span class="line"> 	 	 	&#125; </span><br><span class="line"> 	 	&#125; </span><br><span class="line"> 	 	<span class="built_in">return</span> wordMax </span><br><span class="line"> 	&#125; </span><br><span class="line">&#125; </span><br><span class="line">console.log(count(str))</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/17/clone/" rel="next" title="浅谈深浅复制">
+                <i class="fa fa-chevron-left"></i> 浅谈深浅复制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/head.png"
+                alt="Nora" />
+            
+              <p class="site-author-name" itemprop="name">Nora</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#容易出错的JavaScript题目集锦"><span class="nav-number">1.</span> <span class="nav-text">容易出错的JavaScript题目集锦</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">true</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'yangyiii',
+            repo: 'yangyiii.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'ffb6581d0f29dcf3d640f3c76e0312aa74c132ae',
+            
+                client_id: '56ca374539ac2516502e'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
