@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yangyiii.github.io/"/>
-  <updated>2018-05-19T07:51:31.000Z</updated>
+  <updated>2019-02-17T14:28:40.000Z</updated>
   <id>https://yangyiii.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://yangyiii.github.io/2019/02/17/splice,%20slice,%20substring,%20substr%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8C%BA%E5%88%AB%E7%9A%84%E5%89%AF%E6%9C%AC/"/>
+    <id>https://yangyiii.github.io/2019/02/17/splice, slice, substring, substr的一些区别的副本/</id>
+    <published>2019-02-17T14:28:40.000Z</published>
+    <updated>2019-02-17T14:28:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="splice-slice-substring-substr等方法的一些区别"><a href="#splice-slice-substring-substr等方法的一些区别" class="headerlink" title="splice, slice, substring, substr等方法的一些区别"></a>splice, slice, substring, substr等方法的一些区别</h3><p>今天来写写这些个方法的区别，平时在工作中总是傻傻分不清楚，写篇笔记留着查看。<br>&nbsp; </p><ol><li><p>splice()方法</p><p> 定义：splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。<br> 注意： 该方法会改变原始数组。<br> 用法：</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.splice(index, howmany, item1, ....itemN)</span><br></pre></td></tr></table></figure></li></ol><pre><code>| 参数 | 描述 || ------ | ------ | </code></pre><p>   | index | 必需。整数，规定添加/删除项目的下标，使用负数可从数组结尾处规定位置。 |<br>   | howmany | 必需。要删除的项目数量。如果设置为 0，则不会删除项目。|<br>   |item |可选。要添加的元素 |</p><pre><code> 例子<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4,5]</span><br><span class="line">console.log(arr.splice(0,1,2));         //[1]</span><br><span class="line">console.log(arr);       //[2,2,3,4,5]</span><br></pre></td></tr></table></figure></code></pre><p>&nbsp;<br>&nbsp;</p><ol><li><p>slice()方法<br>定义：slice()方法可从已有的数组中返回选定的元素。<br>注意： 该方法不会改变原始数组。<br>用法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.slice(start,end)</span><br></pre></td></tr></table></figure></li></ol><pre><code> | 参数 | 描述 | | ------ | ------ | | start | 必需。规定从何处开始选取。如果是负数，那么它规定从数组尾部开始算起的位置。也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。 | | end | 可选。规定从何处结束选取。该参数是数组片断结束处的数组下标。如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。如果这个参数是负数，那么它规定的是从数组尾部开始算起的元素。|例子<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4];</span><br><span class="line">console.log(arr.slice(1, 3));     //[2, 3]</span><br><span class="line">console.log(arr);              //[1,2,3,4]</span><br></pre></td></tr></table></figure></code></pre><p> &nbsp;<br>&nbsp;</p><ol><li><p>substring()方法<br>定义： substring() 方法用于提取字符串中介于两个指定下标之间的字符。<br>注意： 该方法不会改变原始字符串。<br>重要事项：与 slice() 和 substr() 方法不同的是，substring() 不接受负的参数。<br>用法： </p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.substring(start,stop)</span><br></pre></td></tr></table></figure><p> | 参数 | 描述 |<br>  | —— | —— |<br>| start | 必需。一个非负的整数，规定要提取的子串的第一个字符在 str 中的位置。 |<br>| end | 可选。一个非负的整数，比要提取的子串的最后一个字符在 str中的位置多 1。如果省略该参数，那么返回的子串会一直到字符串的结尾。|</p><p> 例子</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;Hello world!&quot;;</span><br><span class="line">console.log(str.substring(3));      //&apos;lo world!&apos;</span><br><span class="line">console.log(str.substring(3,8));   //&apos;lo wo&apos;</span><br><span class="line">console.log(str.substring(5,1));  //&apos;ello &apos;</span><br><span class="line">console.log(str);        //&apos;Hello world!&apos;</span><br></pre></td></tr></table></figure><p> &nbsp;<br> &nbsp;</p></li><li><p>substr()方法<br>定义： substr() 方法可在字符串中抽取从 start 下标开始的指定数目的字符。<br>注意： 该方法不会改变原始字符串。<br>注释：substr() 的参数指定的是子串的开始位置和长度，因此它可以替代 substring() 和 slice() 来使用。<br>用法：</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.substr(start,length)</span><br></pre></td></tr></table></figure><p> | 参数 | 描述 |<br>  | —— | —— |<br>| start | 必需。要抽取的子串的起始下标。必须是数值。如果是负数，那么该参数声明从字符串的尾部开始算起的位置。也就是说，-1 指字符串中最后一个字符，-2 指倒数第二个字符，以此类推。 |<br>| length | 可选。子串中的字符数。必须是数值。如果省略了该参数，那么返回从 str的开始位置到结尾的字串。|<br> 例子</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;Hello world!&quot;；</span><br><span class="line">console.log(str.substr(3));      //&apos;lo world!&apos;</span><br><span class="line">console.log(str.substr(-1));     //&apos;!&apos;</span><br><span class="line">console.log(str.substr(1,7));    //&apos;ello wo&apos;</span><br><span class="line">console.log(str);                  //&apos;Hello world!&apos;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;splice-slice-substring-substr等方法的一些区别&quot;&gt;&lt;a href=&quot;#splice-slice-substring-substr等方法的一些区别&quot; class=&quot;headerlink&quot; title=&quot;splice, slice, sub
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>容易出错的JavaScript题目集锦</title>
